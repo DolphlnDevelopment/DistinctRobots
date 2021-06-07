@@ -4,7 +4,6 @@ import com.dolphln.distinctrobots.DistinctRobots;
 import com.dolphln.distinctrobots.core.robot.Orientation;
 import com.dolphln.distinctrobots.core.robot.RobotArmor;
 import com.dolphln.distinctrobots.core.robot.RobotMoney;
-import com.dolphln.distinctrobots.utils.HandUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -16,7 +15,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.util.EulerAngle;
 
 import java.util.List;
 import java.util.UUID;
@@ -37,7 +35,6 @@ public class Robot {
     private String robotReward;
 
     private ArmorStand armorStand;
-    private ArmorStand armorStandPickaxe;
     private UUID ownerUUID;
 
     /* Location */
@@ -127,7 +124,6 @@ public class Robot {
     public void show() {
         if (this.armorStand == null) {
             ArmorStand stand = (ArmorStand) location.getLocation().getWorld().spawnEntity(getCentralizedLocation(), EntityType.ARMOR_STAND);
-
             stand.setSmall(true);
             stand.setArms(true);
             stand.setBasePlate(false);
@@ -143,13 +139,7 @@ public class Robot {
             stand.getEquipment().setChestplate(this.robotArmor.getChestplate());
             stand.getEquipment().setLeggings(this.robotArmor.getLeggings());
             stand.getEquipment().setBoots(this.robotArmor.getBoots());
-
-            // Pickaxe Armor Stand
-            this.armorStandPickaxe = spawnPickaxeStand();
-            /*//2f,0f,4f
-            EulerAngle rightArm = new EulerAngle(HandUtils.degreesToRadians(2F),HandUtils.degreesToRadians(0F),HandUtils.degreesToRadians(4F));
-            stand.setRightArmPose(rightArm);*/
-            //stand.getEquipment().setItemInHand(this.robotArmor.getHand());
+            stand.getEquipment().setItemInHand(this.robotArmor.getHand());
 
             stand.setCustomNameVisible(true);
             stand.setCustomName(ChatColor.WHITE + " ");
@@ -157,29 +147,6 @@ public class Robot {
             this.armorStand = stand;
             updateHologram();
         }
-    }
-
-    private ArmorStand spawnPickaxeStand() {
-        if (this.armorStandPickaxe == null) {
-            ArmorStand standPickaxe = (ArmorStand) location.getLocation().getWorld().spawnEntity(getCentralizedLocation(), EntityType.ARMOR_STAND);
-
-            standPickaxe.setSmall(true);
-            standPickaxe.setArms(true);
-            standPickaxe.setBasePlate(false);
-
-            standPickaxe.setVisible(true);
-            standPickaxe.setGravity(false);
-
-            standPickaxe.setCanPickupItems(false);
-            standPickaxe.getEquipment().setItemInHand(this.robotArmor.getHand());
-
-            //344f,0f,0f
-            EulerAngle rightArm = new EulerAngle(HandUtils.degreesToRadians(6F), HandUtils.degreesToRadians(0F), HandUtils.degreesToRadians(0F));
-            standPickaxe.setRightArmPose(rightArm);
-
-            return standPickaxe;
-        }
-        return null;
     }
 
     public void updateHologram() {

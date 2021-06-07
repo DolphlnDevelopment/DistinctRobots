@@ -6,7 +6,7 @@
 
     <groupId>DistinctRobots</groupId>
     <artifactId>DistinctRobots</artifactId>
-    <version>1.2-mc1.8</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>DistinctRobots</name>

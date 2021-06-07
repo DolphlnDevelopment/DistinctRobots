@@ -67,7 +67,7 @@ public class RobotPlaceListener implements Listener {
         Orientation orientation = Orientation.getOrientation(p.getLocation().getYaw());
         Location loc = e.getClickedBlock().getLocation().add(0, 1, 0);
         boolean allowed = plugin.getSuperiorSkyblockHook().locationValid(p, new BasicLocation(loc));
-        //System.out.println(allowed);
+        System.out.println(allowed);
         if (!allowed) {
             p.sendMessage(
                     ChatColor.translateAlternateColorCodes('&', plugin.getConfigFile().getMessage("invalid-location"))
