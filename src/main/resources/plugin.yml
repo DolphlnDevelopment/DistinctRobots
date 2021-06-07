@@ -1,0 +1,14 @@
+name: DistinctRobots
+version: ${project.version}
+main: com.dolphln.distinctrobots.DistinctRobots
+api-version: 1.16
+authors: [ Dolphln ]
+description: DistinctRobots
+website: dolphln.com
+softdepend:
+  - SuperiorSkyblock2
+
+commands:
+  robot:
+    aliases:
+      - robots

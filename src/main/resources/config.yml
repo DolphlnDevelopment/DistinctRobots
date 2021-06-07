@@ -1,0 +1,101 @@
+# You can find all 1.8 materials on https://helpch.at/docs/1.8/org/bukkit/Material.html
+
+whitelisted-world:
+  - world
+
+menu:
+  title: "&f%robot% &7Robot Menu"
+  placeholder:
+    material: STAINED_GLASS_PANE
+    data: 15
+    name: "&f "
+    lore:
+      - "&f "
+  claim:
+    # Set to true if you are going to use a head. If true, in material put the texture id.
+    head: false
+    material: CHEST
+    data: 0
+    name: "&c&lClaim"
+    lore:
+      - "&7Balance: &f%balance%"
+      - "&7Time until next generation: &f%time%"
+  pickup:
+    # Set to true if you are going to use a head. If true, in material put the texture id.
+    head: false
+    material: BARRIER
+    data: 0
+    name: "&c&lPick up"
+    lore:
+      - "&7Click me to pick me up."
+
+robots:
+  test:
+    # Colored Name (Used for the GUI)
+    colored-name: "&aTest"
+    # Hologram that will be displayer above the robot
+    hologram: "&e&l%time%"
+    # Interval in seconds of the robot
+    interval: 5
+    # Money that robot will "mine" in every interval
+    money: 10
+    # Block that will be placed infront of the robot
+    block-front: DIAMOND_ORE
+    # This will be ran when balance is claimed.
+    reward: "say %player% claimed %balance%"
+    # Item given to the user (Doesn't support placeholders)
+    item:
+      # Set to true if you are going to use a head. If true, in material put the texture id.
+      head: true
+      material: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWUzZDUzNjIxYzhkYjQyNDQyZThkMjhlNmI0ZTg2OTg5MDRjODlkNjA2N2IyZjY0NDg2NTRlNDRlMDc0MDU5NiJ9fX0="
+      data: 0
+      display-name: "&atest robot"
+      lore:
+        - "&f"
+        - "&6Produces: &eOne Point Reward"
+        - "&6Price: &e%price%"
+
+    armor-stand:
+      head:
+        # Set to true if you are going to use a head. If True, in material put the texture id.
+        head: true
+        material: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWUzZDUzNjIxYzhkYjQyNDQyZThkMjhlNmI0ZTg2OTg5MDRjODlkNjA2N2IyZjY0NDg2NTRlNDRlMDc0MDU5NiJ9fX0="
+        data: 0
+        leather_tools:
+          enabled: false
+          color: "#000000"
+      chestplate:
+        # Set to true if you are going to use a head. If True, in material put the texture id.
+        material: "LEATHER_CHESTPLATE"
+        data: 0
+        leather_tools:
+          enabled: true
+          color: "#000000"
+      leggings:
+        # Set to true if you are going to use a head. If True, in material put the texture id.
+        material: "leather_leggings"
+        data: 0
+        leather_tools:
+          enabled: true
+          color: "#000000"
+      boots:
+        # Set to true if you are going to use a head. If True, in material put the texture id.
+        material: "leather_boots"
+        data: 0
+        leather_tools:
+          enabled: true
+          color: "#000000"
+      hand:
+        material: "diamond_pickaxe"
+        data: 0
+
+
+messages:
+  world: "&8[&3Robots&8] &cThis world is not whitelisted!"
+  limit: "&8[&3Robots&8] &cLimit of robots reached!"
+  place: "&8[&3Robots&8] &cPlace the robot on top of a block!"
+  no-space: "&8[&3Robots&8] &cThere's not enough space!"
+  wrong-owner: "&8[&3Robots&8] &cThis robot is not yours!"
+  robot-block: "&8[&3Robots&8] &cYou are not a robot, you cannot break this block!"
+  no-balance: "&8[&3Robots&8] &cYou don't have balance to claim anything!"
+  invalid-location: "&8[&3Robots&8] &cYou are not allowed to place robots here!"
